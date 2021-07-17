@@ -1,0 +1,12 @@
+version: '3.1'
+services:
+  nestjs-zmq-listener:
+    build: ./zeromq-nestjs-ct-listener
+    ports:
+     - "3000:3000"
+    environment:
+     - PRODUCER_HOST=nestjs-zmq-producer
+  nestjs-zmq-producer:
+    build: ./zeromq-nestjs-ct-producer
+    ports:
+     - "5000:5000"
